@@ -6,14 +6,13 @@ from palavra import eh_palavra        #função retorna palavra minúscula; sem 
 
 def cria_dicionario(trie): 
     dic='dicionario.csv'
-    extensao_csv=".csv"
     arq2 = 'TWfonte.csv' 
     copia = open(arq2, 'w')
     dicionario = open(dic, 'w')
     r='S'
     lista=[]
     while r.lower()=='s':
-        arqF= input("Nome do arq fonte: ")+extensao_csv
+        arqF= input("Nome do arq fonte: ")+".csv"
         original = open(arqF, 'r')
         for linha in original.readlines():
             for campo in linha.split(';'):
@@ -34,7 +33,7 @@ def cria_dicionario(trie):
             linha = ' '.join(['%s'%campo.strip() for campo in linha.split(';')])+'\n'
             copia.write(linha)
         original.close()
-        r= input("Deseja inserir outro arq como fonte [s ou n]: ")+extensao_csv
+        r= input("Deseja inserir outro arq como fonte [s ou n]: ")
     copia.close()
     dicionario.close()
     return trie
