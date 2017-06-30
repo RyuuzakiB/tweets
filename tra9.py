@@ -1,5 +1,5 @@
 from trie import Trie	              #funções da classe trie, como inserir, procurar a polaridade, etc
-from Bmais import BPlusTree           #funções das classes B e B+
+from B import BPlusTree           #funções das classes B e B+
 from funcoes_main import cria_dicionario, insere_na_B, polaridade_tweet
 
 if __name__ == '__main__':
