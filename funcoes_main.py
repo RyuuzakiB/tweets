@@ -1,6 +1,6 @@
 import csv    	                      #para administrar funções de leitura/escrita em arquivos csv
 from trie import Trie	              #funções da classe trie, como inserir, procurar a polaridade, etc
-from Bmais import BPlusTree           #funções das classes B e B+
+from B import BPlusTree           #funções das classes B e B+
 from palavra import eh_palavra        #função retorna palavra minúscula; sem pontuação, números, e qualquer coisa que não for alfabeto
 
 
