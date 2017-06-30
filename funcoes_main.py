@@ -4,15 +4,14 @@ from Bmais import BPlusTree           #funções das classes B e B+
 from palavra import eh_palavra        #função retorna palavra minúscula; sem pontuação, números, e qualquer coisa que não for alfabeto
 
 
+
 def cria_dicionario(trie): 
-    dic='dicionario.csv'
-    arq2 = 'TWfonte.csv' 
+    arq2 = 'Copia_fonte.csv' 
     copia = open(arq2, 'w')
-    dicionario = open(dic, 'w')
     r='S'
     lista=[]
     while r.lower()=='s':
-        arqF= input("Nome do arq fonte: ")+".csv"
+        arqF= input("Nome do arq fonte: ")+'.csv'
         original = open(arqF, 'r')
         for linha in original.readlines():
             for campo in linha.split(';'):
@@ -23,11 +22,10 @@ def cria_dicionario(trie):
                         if escore=='1' or escore=='-1' or escore=='0':
                             escore=int(escore)
             for word in linha.split(' '):
-                palavra=eh_palavra(word)             #função tira pontuação, números, e qualquer coisa que não for alfabeto da palavra; em minúsculo
+                palavra=eh_palavra(word)
                 if palavra:     					
                     if palavra not in trie:
                         trie.insert(palavra,escore)
-                        dicionario.write('%s\n' % (palavra))#arv B++ usa depois
                     else:
                         trie.update(palavra,escore)
             linha = ' '.join(['%s'%campo.strip() for campo in linha.split(';')])+'\n'
@@ -35,8 +33,8 @@ def cria_dicionario(trie):
         original.close()
         r= input("Deseja inserir outro arq como fonte [s ou n]: ")
     copia.close()
-    dicionario.close()
     return trie
+    
     
     
     
