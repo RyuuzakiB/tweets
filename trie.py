@@ -51,17 +51,18 @@ class Trie:
         for char in word:
             node = node.child[char]
         return float(node.pol),int(node.ac),int(node.f)
+            
+            
+    def getT(self, prefix=""):#retorna todos os elementos da trie
+        """
+        Função criada para percorrer a trie inteira; as letras vão se acumulando e quando acha os valores, retorna naquele formato
+        """
+        if self.pol is not None:#se o nodo existe
+            if self.f != 0:#se a frequencia é diferente de 0, ou seja, se chegou em algum nodo com pol, acc e f associadas
+                yield "{}:{}".format(self.pol, prefix)#retorna "pol:prefix", sem sair da função
+        for letter, child in self.child.items():#para cada letra filha
+            yield from child.getT(prefix + letter)#chama a função de novo passando o prefixo + letra filha
 
-    def busca_todas(self):
-        """
-        Função criada para percorrer a trie inteira, e imprimir todas suas palavras com suas determinadas polaridades
-        """
-        trie=self
-        s = []
-        for i in self.child:
-            s.append(self.child)
-            print(''.join(s))
-            s=[]
 
     def __contains__(self, word):
         '''
