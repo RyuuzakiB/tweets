@@ -75,12 +75,13 @@ class Trie:
             else:
                 return False
         return True
-
+    
+    
     def __str__(self, depth = 0):
         """
         Apresenta uma trie bonitinha, não ordenada
         """
+        s = []
         for i in self.child:
-            s.append( '{}{}-> {}-{}-{} {}'.format(' ' * depth, i or '#', self.pol, self.acc, self.f, '\n' + self.child[i].__str__(depth + 1)))
-
-        
+            s.append( '{}{}-> {}-{}-{} {}'.format(' ' * depth, i or '#', self.pol, self.ac, self.f, '\n' + self.child[i].__str__(depth + 1)))
+        return ''.join(s)
